@@ -2,9 +2,9 @@ import os
 import re
 import string
 from pprint import pprint
-from konlpy.tag import Okt
+from konlpy.tag import Hannanum
 
-okt = Okt()
+okt = Hannanum()
 documents = []
 
 dir_name = 'korean-documents'
@@ -16,7 +16,6 @@ for filename in os.listdir(dir_name):
 
 
 ### sklearn
-
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.cluster import KMeans
 
