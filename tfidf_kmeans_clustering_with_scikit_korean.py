@@ -2,7 +2,9 @@ import os
 import re
 import string
 from pprint import pprint
+from konlpy.tag import Okt
 
+okt = Okt()
 documents = []
 
 dir_name = 'korean-documents'
@@ -21,11 +23,11 @@ from sklearn.cluster import KMeans
 
 def preprocessing(text):
     text = text.lower()
-    text = re.sub(r"[{}]".format(string.punctuation), " ", text)
-    return text
+    text = okt.nouns(text)
+    return " ".join(text)
 
 
-tfidf_v = TfidfVectorizer(preprocessor=preprocessing, use_idf=True)
+tfidf_v = TfidfVectorizer(preprocessor=preprocessing,stop_words="english", use_idf=True)
 
 
 tfidf = tfidf_v.fit_transform(documents)
