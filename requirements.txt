@@ -1,2 +1,3 @@
 konlpy
 scikit-learn
+nltk
