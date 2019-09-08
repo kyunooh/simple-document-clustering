@@ -2,9 +2,9 @@ import os
 import re
 import string
 from pprint import pprint
-from konlpy.tag import Hannanum
+from konlpy.tag import Okt
 
-okt = Hannanum()
+okt = Okt()
 documents = []
 
 dir_name = 'korean-documents'
@@ -26,7 +26,7 @@ def preprocessing(text):
     return " ".join(text)
 
 
-tfidf_v = TfidfVectorizer(preprocessor=preprocessing,stop_words="english", use_idf=True)
+tfidf_v = TfidfVectorizer(preprocessor=preprocessing, stop_words="english", use_idf=True)
 
 
 tfidf = tfidf_v.fit_transform(documents)
